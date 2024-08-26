@@ -1,0 +1,35 @@
+global:
+  # How frequently to scrape targets by default.
+  scrape_interval: "15s"
+  # How long until a scrape request times out.
+  scrape_timeout: "10s"
+  # How frequently to evaluate rules.
+  # evaluation_interval: "1m"
+
+scrape_configs:
+  - job_name: 'prometheus'
+    metrics_path: /metrics
+    honor_labels: false
+    honor_timestamps: true
+    scheme: http
+    follow_redirects: true
+    body_size_limit: 0
+    sample_limit: 0
+    label_limit: 0
+    label_name_length_limit: 0
+    label_value_length_limit: 0
+    target_limit: 0
+  
+  - job_name: general
+    scrape_interval: 60s
+    static_configs:
+      - targets:
+          - node-exporter:9100
+  #        - cadvisor:8080
+  - job_name: caddy
+    static_configs:
+      - targets: [ caddy:2019 ]
+  - job_name: minio-loki
+    metrics_path: /minio/v2/metrics/cluster
+    static_configs:
+      - targets: [ minio-loki:9006 ]

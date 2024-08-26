@@ -5,3 +5,7 @@
 /portainer_data
 /kafka_data
 /prometheus/data
+/loki/data/
+/loki/s3/
+/loki/secrets/
+/pgdata
