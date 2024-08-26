@@ -1,0 +1,7 @@
+/caddy/data
+/prometheus/data
+/grafana/data
+/zookeeper_data
+/portainer_data
+/kafka_data
+/prometheus/data
